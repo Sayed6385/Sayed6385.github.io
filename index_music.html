@@ -67,39 +67,53 @@ function resize(){W=c.width=innerWidth;H=c.height=innerHeight;p=Array.from({leng
 .musicBtn.playing{animation:pulse 1.2s infinite}
 @keyframes pulse{50%{transform:scale(1.08);box-shadow:0 0 35px #ff2be888}}
 </style>
-<audio id="bgMusic" src="song.mp3" loop preload="auto"></audio>
+<audio id="bgMusic" loop preload="metadata">
+  <source src="./song.mp3" type="audio/mpeg">
+</audio>
 <button class="musicBtn" id="musicBtn" aria-label="Play music">🎵</button>
 <script>
-const music=document.getElementById("bgMusic");
-const musicBtn=document.getElementById("musicBtn");
+const music = document.getElementById("bgMusic");
+const musicBtn = document.getElementById("musicBtn");
 
 function updateMusicButton(){
-  if(music.paused){
-    musicBtn.textContent="🎵";
+  if (music.paused) {
+    musicBtn.textContent = "🎵";
     musicBtn.classList.remove("playing");
-  }else{
-    musicBtn.textContent="⏸️";
+  } else {
+    musicBtn.textContent = "⏸️";
     musicBtn.classList.add("playing");
   }
 }
 
-musicBtn.addEventListener("click", async ()=>{
-  try{
-    if(music.paused) await music.play();
-    else music.pause();
+music.addEventListener("error", () => {
+  alert("song.mp3 পাওয়া যাচ্ছে না। নিশ্চিত করুন song.mp3 ফাইলটি index_music.html-এর একই folder-এ আছে।");
+});
+
+musicBtn.addEventListener("click", async () => {
+  try {
+    if (music.paused) {
+      await music.play();
+    } else {
+      music.pause();
+    }
     updateMusicButton();
-  }catch(e){
-    alert("Music চালু করতে আবার Music বাটনে চাপ দিন।");
+  } catch (e) {
+    console.error("Audio play error:", e);
+    alert("গান চালু হয়নি। আগে ওয়েবসাইটটি GitHub Pages থেকে খুলে Music বাটনে চাপ দিন।");
   }
 });
 
-document.addEventListener("visibilitychange",()=>{
-  if(document.hidden) music.pause();
+music.addEventListener("play", updateMusicButton);
+music.addEventListener("pause", updateMusicButton);
+music.addEventListener("ended", updateMusicButton);
+
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) music.pause();
   updateMusicButton();
 });
 
-/* Try autoplay; mobile browsers may block sound until the user taps the button. */
-music.play().then(updateMusicButton).catch(updateMusicButton);
+/* Mobile browsers normally block autoplay, so playback starts after a tap. */
+updateMusicButton();
 </script>
 
 </body></html>
