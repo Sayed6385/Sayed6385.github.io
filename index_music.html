@@ -58,11 +58,13 @@ function resize(){W=c.width=innerWidth;H=c.height=innerHeight;p=Array.from({leng
 
 <style>
 .musicBtn{
-  position:fixed;right:18px;bottom:22px;z-index:50;
-  width:58px;height:58px;border-radius:50%;
-  border:1px solid #63faff;background:#061426dd;color:#63faff;
-  box-shadow:0 0 22px #00eaff66,inset 0 0 16px #00eaff22;
-  font-size:24px;cursor:pointer;backdrop-filter:blur(10px);
+  position:fixed;right:22px;bottom:28px;z-index:50;
+  width:82px;height:82px;border-radius:50%;
+  border:2px solid #63faff;background:#061426ee;color:#63faff;
+  box-shadow:0 0 28px #00eaff88,inset 0 0 20px #00eaff33;
+  font-size:36px;cursor:pointer;backdrop-filter:blur(10px);
+  display:flex;align-items:center;justify-content:center;
+  touch-action:manipulation;
 }
 .musicBtn.playing{animation:pulse 1.2s infinite}
 @keyframes pulse{50%{transform:scale(1.08);box-shadow:0 0 35px #ff2be888}}
