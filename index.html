@@ -26,27 +26,16 @@ section{padding:70px 0}.panel{border:1px solid #124c80;border-radius:25px;backgr
 .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.skill{padding:23px 15px;text-align:center;border:1px solid #2460b7;border-radius:18px;background:linear-gradient(145deg,#05132a,#030914);box-shadow:0 0 20px #006cff17;transition:.3s}.skill:hover{transform:translateY(-7px);box-shadow:0 0 28px #00dfff35}.ico{font-size:28px;color:#63faff}.skill b{display:block;margin-top:8px}
 .social{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.social a{padding:18px;text-align:center;border-radius:16px;text-decoration:none;color:#fff;border:1px solid #234e78;background:#061022}.social a:hover{box-shadow:0 0 25px #00eaff44;transform:translateY(-3px)}footer{text-align:center;padding:55px 0 35px;color:#71819d;font-size:11px}footer strong{font-family:"Dancing Script";font-size:27px;color:#63f8ff}
 
-/* Music player */
-.musicBox{position:fixed!important;left:50%!important;right:auto!important;bottom:15px!important;top:auto!important;transform:translateX(-50%)!important;z-index:9999!important;display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid #00eaff;border-radius:18px;background:rgba(1,8,20,.95);backdrop-filter:blur(12px);box-shadow:0 0 22px #00eaff55;white-space:nowrap}
-.musicBtn{border:0;border-radius:12px;padding:10px 14px;background:#031425;color:#fff;font:600 13px Poppins;cursor:pointer;box-shadow:0 0 12px #00eaff33}
-.musicBtn:hover{box-shadow:0 0 20px #00eaff77}
-.musicStatus{font-size:11px;color:#9cefff;min-width:62px;text-align:center}
-audio{display:none}
-
 @media(max-width:760px){.links{display:none}.menu{display:block}.heroGrid{grid-template-columns:1fr;text-align:center}.buttons{justify-content:center}.aboutGrid{grid-template-columns:1fr}.skills{grid-template-columns:1fr 1fr}.social{grid-template-columns:1fr 1fr}.photoBox{width:min(310px,78vw)}}
-@media(max-width:430px){.skills,.social,.facts{grid-template-columns:1fr}.title{font-size:39px}.logo{font-size:21px}.musicBox{left:50%!important;right:auto!important;bottom:10px!important;transform:translateX(-50%)!important}}
+@media(max-width:430px){.skills,.social,.facts{grid-template-columns:1fr}.title{font-size:39px}.logo{font-size:21px}}
 </style>
 </head>
 <body>
 <div class="sky"></div><canvas id="fx"></canvas>
 <nav><div class="logo">♛ Chandy Lover Only</div><div class="links"><a href="#home">HOME</a><a href="#about">ABOUT</a><a href="#skills">SKILLS</a><a href="#contact">CONTACT</a></div><div class="menu">☰</div></nav>
 
-<!-- Music -->
+<!-- Music: starts on the first user tap/click -->
 <audio id="music" src="song.mp3" preload="auto" loop></audio>
-<div class="musicBox">
-  <button class="musicBtn" id="musicBtn" type="button">🎵 Play Music</button>
-  <span class="musicStatus" id="musicStatus">OFF</span>
-</div>
 
 <main id="home">
 <section class="hero"><div class="wrap heroGrid">
@@ -74,32 +63,20 @@ function resize(){W=c.width=innerWidth;H=c.height=innerHeight;p=Array.from({leng
 function draw(){x.clearRect(0,0,W,H);for(const q of p){q.y-=q.v;if(q.y<0)q.y=H;q.x+=Math.sin(q.y/80)*.12;x.beginPath();x.arc(q.x,q.y,q.r,0,7);x.fillStyle="rgba(83,238,255,.65)";x.fill()}requestAnimationFrame(draw)}
 addEventListener("resize",resize);resize();draw();
 
-/* Music controls */
+/* Music: any user tap/click starts the song */
 const music=document.getElementById("music");
-const musicBtn=document.getElementById("musicBtn");
-const musicStatus=document.getElementById("musicStatus");
-
-musicBtn.addEventListener("click",async()=>{
+let musicStarted=false;
+async function startMusic(){
+  if(musicStarted) return;
   try{
-    if(music.paused){
-      await music.play();
-      musicBtn.textContent="⏸ Pause Music";
-      musicStatus.textContent="ON";
-    }else{
-      music.pause();
-      musicBtn.textContent="🎵 Play Music";
-      musicStatus.textContent="OFF";
-    }
-  }catch(err){
-    musicStatus.textContent="ERROR";
-    alert("গান চালু হয়নি। song.mp3 ফাইলটি index.html-এর একই জায়গায় আছে কিনা দেখুন।");
-  }
-});
-
-music.addEventListener("ended",()=>{
-  musicBtn.textContent="🎵 Play Music";
-  musicStatus.textContent="OFF";
-});
+    await music.play();
+    musicStarted=true;
+    document.removeEventListener("click",startMusic);
+    document.removeEventListener("touchstart",startMusic);
+  }catch(e){}
+}
+document.addEventListener("click",startMusic,{once:false});
+document.addEventListener("touchstart",startMusic,{once:false,passive:true});
 </script>
 </body>
 </html>
