@@ -57,17 +57,35 @@ function resize(){W=c.width=innerWidth;H=c.height=innerHeight;p=Array.from({leng
 </script>
 
 <style>
-.musicBtn{
-  position:fixed;right:22px;bottom:28px;z-index:50;
-  width:82px;height:82px;border-radius:50%;
-  border:2px solid #63faff;background:#061426ee;color:#63faff;
-  box-shadow:0 0 28px #00eaff88,inset 0 0 20px #00eaff33;
-  font-size:36px;cursor:pointer;backdrop-filter:blur(10px);
-  display:flex;align-items:center;justify-content:center;
+ .musicBtn{
+  position:fixed !important;
+  right:18px !important;
+  bottom:22px !important;
+  left:auto !important;
+  top:auto !important;
+  z-index:99999 !important;
+  width:64px !important;
+  height:64px !important;
+  min-width:64px !important;
+  min-height:64px !important;
+  border-radius:50%;
+  border:2px solid #63faff;
+  background:#061426ee;
+  color:#63faff;
+  box-shadow:0 0 22px #00eaff66,inset 0 0 16px #00eaff22;
+  font-size:28px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
   touch-action:manipulation;
+  transform:none !important;
+  animation:none !important;
 }
-.musicBtn.playing{animation:pulse 1.2s infinite}
-@keyframes pulse{50%{transform:scale(1.08);box-shadow:0 0 35px #ff2be888}}
+.musicBtn.playing{
+  animation:none !important;
+  transform:none !important;
+}
 </style>
 <audio id="bgMusic" loop preload="metadata">
   <source src="./song.mp3" type="audio/mpeg">
