@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Chandy Lover Only — SAYED ISLAM personal profile">
+<title>Chandy Lover Only</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Dancing+Script:wght@600;700&family=Orbitron:wght@500;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#01040b;color:#fff;font-family:Poppins,sans-serif;overflow-x:hidden}
+canvas{position:fixed;inset:0;z-index:-5}.sky{position:fixed;inset:0;z-index:-6;background:radial-gradient(circle at 50% 15%,#071a43 0,#020713 42%,#000 100%)}
+.sky:after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 20%,rgba(0,229,255,.08),transparent 50%,rgba(164,62,255,.09),transparent 80%);animation:hue 8s linear infinite}
+@keyframes hue{to{filter:hue-rotate(360deg)}}.wrap{width:min(1100px,92%);margin:auto}
+nav{position:fixed;z-index:20;top:10px;left:50%;transform:translateX(-50%);width:min(1000px,94%);display:flex;align-items:center;gap:18px;padding:10px 18px;border:1px solid #174f86;border-radius:25px;background:rgba(0,6,18,.72);backdrop-filter:blur(16px);box-shadow:0 0 28px #006cff22}
+.logo{font-family:"Dancing Script";font-size:25px;color:#5ffaff;text-shadow:0 0 14px #00d9ff;white-space:nowrap}.links{margin-left:auto;display:flex;gap:5px}.links a{color:#dce8ff;text-decoration:none;padding:9px 13px;font-size:12px}.links a:hover{color:#63f7ff;text-shadow:0 0 10px #00eaff}
+.menu{display:none;margin-left:auto;font-size:23px;color:#7df9ff}
+.hero{min-height:100vh;display:grid;place-items:center;padding:115px 0 55px}.heroGrid{display:grid;grid-template-columns:42% 58%;align-items:center;gap:20px}
+.photoBox{width:min(380px,85vw);aspect-ratio:1;border-radius:50%;padding:7px;margin:auto;background:conic-gradient(#00f6ff,#6b32ff,#ff24c8,#00f6ff);box-shadow:0 0 25px #00d9ff,0 0 80px #5b2cff66;animation:spin 8s linear infinite}
+.photo{width:100%;height:100%;object-fit:cover;border-radius:50%;border:7px solid #020817;animation:spinback 8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}@keyframes spinback{to{transform:rotate(-360deg)}}
+.crown{font-size:44px;color:#58f8ff;text-shadow:0 0 18px #00eaff}.title{font-family:Orbitron;font-weight:800;font-size:clamp(38px,6.5vw,78px);line-height:.98;letter-spacing:2px;margin:4px 0;background:linear-gradient(90deg,#65faff,#fff,#ff3be4);background-size:250% auto;-webkit-background-clip:text;color:transparent;animation:shine 4s linear infinite;text-shadow:0 0 30px #00cfff33}
+@keyframes shine{to{background-position:250% center}}.script{font-family:"Dancing Script";font-size:29px;color:#b9faff;margin:18px 0 8px}.tag{font-family:Cinzel;font-size:13px;letter-spacing:3px;color:#aab7d4;min-height:22px}.buttons{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}.btn{padding:12px 18px;border-radius:14px;text-decoration:none;color:white;border:1px solid #1c86c9;background:#031425cc;box-shadow:inset 0 0 18px #00cfff10,0 0 15px #00bfff16;transition:.25s;font-size:13px;font-weight:600}.btn:hover{transform:translateY(-4px);box-shadow:0 0 24px #00eaff55;border-color:#5dfaff}.wa{border-color:#10e889}.tg{border-color:#00bfff}
+section{padding:70px 0}.panel{border:1px solid #124c80;border-radius:25px;background:linear-gradient(145deg,#020c1bde,#01040bdd);box-shadow:0 0 45px #001d3d88,inset 0 0 30px #00bfff08;padding:28px;position:relative;overflow:hidden}.panel:before{content:"";position:absolute;left:0;top:0;width:100%;height:2px;background:linear-gradient(90deg,transparent,#00efff,#ff25e5,transparent);animation:line 4s linear infinite}@keyframes line{to{transform:translateX(100%)}}.heading{font-family:Orbitron;font-size:25px;margin:0 0 25px;color:#eaf6ff;text-shadow:0 0 13px #00cfff}.heading span{color:#58f8ff}.aboutGrid{display:grid;grid-template-columns:1fr 1fr;gap:25px}.about{color:#cbd6e8;line-height:1.8}.quote{font-family:"Dancing Script";font-size:25px;color:#5ffaff;text-shadow:0 0 12px #00eaff;margin-top:20px}.facts{display:grid;grid-template-columns:1fr 1fr;gap:12px}.fact{padding:15px;border:1px solid #153b64;border-radius:15px;background:#07122488}.label{display:block;color:#6df7ff;font-size:10px;letter-spacing:2px;text-transform:uppercase}.val{display:block;margin-top:5px;font-family:Cinzel;font-size:14px}
+.skills{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.skill{padding:23px 15px;text-align:center;border:1px solid #2460b7;border-radius:18px;background:linear-gradient(145deg,#05132a,#030914);box-shadow:0 0 20px #006cff17;transition:.3s}.skill:hover{transform:translateY(-7px);box-shadow:0 0 28px #00dfff35}.ico{font-size:28px;color:#63faff}.skill b{display:block;margin-top:8px}
+.social{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.social a{padding:18px;text-align:center;border-radius:16px;text-decoration:none;color:#fff;border:1px solid #234e78;background:#061022}.social a:hover{box-shadow:0 0 25px #00eaff44;transform:translateY(-3px)}footer{text-align:center;padding:55px 0 35px;color:#71819d;font-size:11px}footer strong{font-family:"Dancing Script";font-size:27px;color:#63f8ff}
+@media(max-width:760px){.links{display:none}.menu{display:block}.heroGrid{grid-template-columns:1fr;text-align:center}.buttons{justify-content:center}.aboutGrid{grid-template-columns:1fr}.skills{grid-template-columns:1fr 1fr}.social{grid-template-columns:1fr 1fr}.photoBox{width:min(310px,78vw)}}
+@media(max-width:430px){.skills,.social,.facts{grid-template-columns:1fr}.title{font-size:39px}.logo{font-size:21px}}
+</style>
+</head>
+<body>
+<div class="sky"></div><canvas id="fx"></canvas>
+<nav><div class="logo">♛ Chandy Lover Only</div><div class="links"><a href="#home">HOME</a><a href="#about">ABOUT</a><a href="#skills">SKILLS</a><a href="#contact">CONTACT</a></div><div class="menu">☰</div></nav>
+
+<main id="home">
+<section class="hero"><div class="wrap heroGrid">
+<div><div class="photoBox"><img class="photo" src="profile.jpg" alt="SAYED ISLAM"></div></div>
+<div><div class="crown">♕</div><h1 class="title">CHANDY<br>LOVER ONLY</h1><div class="script">Not Perfect But Always Real... ♥</div><div class="tag" id="typing"></div>
+<div class="buttons"><a class="btn wa" href="https://wa.me/8801318034896">💬 WhatsApp • 01318034896</a><a class="btn tg" href="https://t.me/Sayedislam6385">✈ Telegram • @Sayedislam6385</a></div>
+<p style="color:#b6c6df">⌖ Patgram, Lalmonirhat</p></div>
+</div></section>
+
+<section id="about"><div class="wrap"><div class="panel"><h2 class="heading">◉ <span>ABOUT</span> ME</h2><div class="aboutGrid"><div class="about">Hi, I'm <b>Chandy Lover Only</b>. I'm a simple boy with a big dream. I love to enjoy life, make new friends, and explore new things. I'm not perfect, but I always try to be better than yesterday.<div class="quote">“Life is Short — So, Enjoy It...” ♥</div></div><div class="facts"><div class="fact"><span class="label">Name</span><span class="val">SAYED ISLAM</span></div><div class="fact"><span class="label">Age</span><span class="val">23+</span></div><div class="fact"><span class="label">Relationship</span><span class="val">Single</span></div><div class="fact"><span class="label">Ex Girlfriend</span><span class="val">17+</span></div><div class="fact"><span class="label">Candy Lover</span><span class="val">YES 🍬</span></div><div class="fact"><span class="label">Home</span><span class="val">Patgram, Lalmonirhat</span></div></div></div></div></div></section>
+
+<section id="skills"><div class="wrap"><div class="panel"><h2 class="heading">⚙ <span>MY</span> SKILLS</h2><div class="skills"><div class="skill"><div class="ico">&lt;/&gt;</div><b>Web Development</b></div><div class="skill"><div class="ico">▣</div><b>App Development</b></div><div class="skill"><div class="ico">✦</div><b>Graphics Design</b></div><div class="skill"><div class="ico">▶</div><b>Video Editing</b></div><div class="skill"><div class="ico">♙</div><b>Problem Solving</b></div><div class="skill"><div class="ico">♧</div><b>Team Work</b></div></div></div></div></section>
+
+<section id="contact"><div class="wrap"><div class="panel"><h2 class="heading">♧ <span>CONNECT</span> WITH ME</h2><div class="social"><a href="https://wa.me/8801318034896">🟢<br>WhatsApp</a><a href="https://t.me/Sayedislam6385">🔵<br>Telegram</a><a href="https://www.facebook.com/Sayedislam63" target="_blank" rel="noopener">🔷<br>Facebook</a><a href="https://www.instagram.com/sayedislam6385/" target="_blank" rel="noopener">📸<br>Instagram</a></div></div></div></section>
+</main>
+<footer><strong>Thanks For Visiting ♥</strong><br><br>— CHANDY LOVER ONLY —<br><br>© <span id="year"></span> Chandy Lover Only. All Rights Reserved.</footer>
+
+<script>
+const words=["PERSONAL PROFILE","DIGITAL WORLD","GOOD VIBES • GOOD LIFE","WELCOME TO MY WEBSITE"];let a=0,b=0,del=false;
+function type(){let e=document.getElementById("typing"),s=words[a];e.textContent=s.slice(0,b);if(!del&&b<s.length){b++;setTimeout(type,75)}else if(!del){del=true;setTimeout(type,1000)}else if(b){b--;setTimeout(type,35)}else{del=false;a=(a+1)%words.length;setTimeout(type,250)}}type();document.getElementById("year").textContent=new Date().getFullYear();
+const c=document.getElementById("fx"),x=c.getContext("2d");let W,H,p=[];
+function resize(){W=c.width=innerWidth;H=c.height=innerHeight;p=Array.from({length:Math.min(120,innerWidth/8)},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*2+.2,v:Math.random()*.7+.15}))}function draw(){x.clearRect(0,0,W,H);for(const q of p){q.y-=q.v;if(q.y<0)q.y=H;q.x+=Math.sin(q.y/80)*.12;x.beginPath();x.arc(q.x,q.y,q.r,0,7);x.fillStyle="rgba(83,238,255,.65)";x.fill()}requestAnimationFrame(draw)}addEventListener("resize",resize);resize();draw();
+</script>
+</body></html>
