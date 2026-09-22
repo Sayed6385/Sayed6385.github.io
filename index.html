@@ -27,14 +27,14 @@ section{padding:70px 0}.panel{border:1px solid #124c80;border-radius:25px;backgr
 .social{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.social a{padding:18px;text-align:center;border-radius:16px;text-decoration:none;color:#fff;border:1px solid #234e78;background:#061022}.social a:hover{box-shadow:0 0 25px #00eaff44;transform:translateY(-3px)}footer{text-align:center;padding:55px 0 35px;color:#71819d;font-size:11px}footer strong{font-family:"Dancing Script";font-size:27px;color:#63f8ff}
 
 /* Music player */
-.musicBox{position:fixed;right:16px;bottom:18px;z-index:50;display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid #00eaff;border-radius:18px;background:rgba(1,8,20,.88);backdrop-filter:blur(12px);box-shadow:0 0 22px #00eaff55}
+.musicBox{position:fixed!important;left:50%!important;right:auto!important;bottom:15px!important;top:auto!important;transform:translateX(-50%)!important;z-index:9999!important;display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid #00eaff;border-radius:18px;background:rgba(1,8,20,.95);backdrop-filter:blur(12px);box-shadow:0 0 22px #00eaff55;white-space:nowrap}
 .musicBtn{border:0;border-radius:12px;padding:10px 14px;background:#031425;color:#fff;font:600 13px Poppins;cursor:pointer;box-shadow:0 0 12px #00eaff33}
 .musicBtn:hover{box-shadow:0 0 20px #00eaff77}
 .musicStatus{font-size:11px;color:#9cefff;min-width:62px;text-align:center}
 audio{display:none}
 
 @media(max-width:760px){.links{display:none}.menu{display:block}.heroGrid{grid-template-columns:1fr;text-align:center}.buttons{justify-content:center}.aboutGrid{grid-template-columns:1fr}.skills{grid-template-columns:1fr 1fr}.social{grid-template-columns:1fr 1fr}.photoBox{width:min(310px,78vw)}}
-@media(max-width:430px){.skills,.social,.facts{grid-template-columns:1fr}.title{font-size:39px}.logo{font-size:21px}.musicBox{right:10px;bottom:10px}}
+@media(max-width:430px){.skills,.social,.facts{grid-template-columns:1fr}.title{font-size:39px}.logo{font-size:21px}.musicBox{left:50%!important;right:auto!important;bottom:10px!important;transform:translateX(-50%)!important}}
 </style>
 </head>
 <body>
